@@ -3,3 +3,4 @@ A 4-Player Chess Mobile Application for Android
 
 Useful Resources:<br>
 [Android Canvas](https://developer.android.com/guide/topics/graphics/2d-graphics.html)
+[Chess Rules](https://www.chess.com/learn-how-to-play-chess)
