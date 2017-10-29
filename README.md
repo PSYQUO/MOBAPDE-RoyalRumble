@@ -1,6 +1,5 @@
-# MOBAPDE 4-Player Chess
-A 4-Player Chess Mobile Application for Android
+# MOBAPDE Royal Rumble
+A Royal Rumble Mobile Application for Android
 
 Useful Resources:<br>
 [Android Canvas](https://developer.android.com/guide/topics/graphics/2d-graphics.html)<br>
-[Chess Rules](https://www.chess.com/learn-how-to-play-chess)
