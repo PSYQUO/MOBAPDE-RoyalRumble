@@ -8,41 +8,44 @@ import java.util.List;
  */
 
 public class Board {
-    private ArrayList<ArrayList<Piece>> board;
+    private ArrayList<ArrayList<Tile>> board;
     private int sizex, sizey;
 
     public Board(int sizex, int sizey){
         this.sizex = sizex;
         this.sizey = sizey;
-        board = new ArrayList<ArrayList<Piece>>(sizex);
+        board = new ArrayList<ArrayList<Tile>>();
 
-        for (int i = 0; i < sizex; i++)
-            board.add(new ArrayList<Piece>(sizey));
+        for (int i = 0; i < sizex; i++) {
+            ArrayList<Tile> x = new ArrayList<Tile>();
+            for(int j = 0; j < sizey; j++)
+                x.add(new Tile());
+            board.add(x);
+        }
 
     }
 
     public void print(){
         for(int x = 0; x < sizex; x++){
             for (int y = 0; y < sizey; y++){
-                if(board.get(x).get(y) == null)
+                if(board.get(x).get(y).getPiece() == null)
                     System.out.print("O ");
-                if(board.get(x).get(y) != null)
-                    System.out.print("X");
+                else if(board.get(x).get(y).getPiece() != null)
+                    System.out.print("X ");
             }
             System.out.println();
         }
     }
 
     public void setPiece(Piece piece, int x, int y){
-        System.out.println("fdasf");
-        board.get(x).set(y, piece);
+        board.get(x).get(y).setPiece(piece);
     }
 
-    public ArrayList<ArrayList<Piece>> getBoard() {
+    public ArrayList<ArrayList<Tile>> getBoard() {
         return board;
     }
 
-    public void setBoard(ArrayList<ArrayList<Piece>> board) {
+    public void setBoard(ArrayList<ArrayList<Tile>> board) {
         this.board = board;
     }
 
