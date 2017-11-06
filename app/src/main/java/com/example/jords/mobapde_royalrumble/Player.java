@@ -1,10 +1,13 @@
 package com.example.jords.mobapde_royalrumble;
 
+import java.util.ArrayList;
+
 /**
  * Created by Jords on 11/6/2017.
  */
 
 public class Player {
+
     private int pnum;
     private String name;
 
@@ -28,4 +31,5 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
+
 }

@@ -30,18 +30,18 @@ public class Checkers{
         board.setPiece(new Piece(player1, "checkers", "black"), 2, 7);
 
 
-        board.setPiece(new Piece(player1, "checkers", "black"), 5, 0);
-        board.setPiece(new Piece(player1, "checkers", "black"), 5, 2);
-        board.setPiece(new Piece(player1, "checkers", "black"), 5, 4);
-        board.setPiece(new Piece(player1, "checkers", "black"), 5, 6);
-        board.setPiece(new Piece(player1, "checkers", "black"), 6, 1);
-        board.setPiece(new Piece(player1, "checkers", "black"), 6, 3);
-        board.setPiece(new Piece(player1, "checkers", "black"), 6, 5);
-        board.setPiece(new Piece(player1, "checkers", "black"), 6, 7);
-        board.setPiece(new Piece(player1, "checkers", "black"), 7, 0);
-        board.setPiece(new Piece(player1, "checkers", "black"), 7, 2);
-        board.setPiece(new Piece(player1, "checkers", "black"), 7, 4);
-        board.setPiece(new Piece(player1, "checkers", "black"), 7, 6);
+        board.setPiece(new Piece(player2, "checkers", "black"), 5, 0);
+        board.setPiece(new Piece(player2, "checkers", "black"), 5, 2);
+        board.setPiece(new Piece(player2, "checkers", "black"), 5, 4);
+        board.setPiece(new Piece(player2, "checkers", "black"), 5, 6);
+        board.setPiece(new Piece(player2, "checkers", "black"), 6, 1);
+        board.setPiece(new Piece(player2, "checkers", "black"), 6, 3);
+        board.setPiece(new Piece(player2, "checkers", "black"), 6, 5);
+        board.setPiece(new Piece(player2, "checkers", "black"), 6, 7);
+        board.setPiece(new Piece(player2, "checkers", "black"), 7, 0);
+        board.setPiece(new Piece(player2, "checkers", "black"), 7, 2);
+        board.setPiece(new Piece(player2, "checkers", "black"), 7, 4);
+        board.setPiece(new Piece(player2, "checkers", "black"), 7, 6);
     }
 
     public void print(){
