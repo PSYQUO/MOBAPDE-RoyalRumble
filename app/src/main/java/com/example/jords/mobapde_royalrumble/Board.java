@@ -24,9 +24,9 @@ public class Board {
     public void print(){
         for(int x = 0; x < sizex; x++){
             for (int y = 0; y < sizey; y++){
-                if(board[x][y] == null)
+                if(board.get(x).get(y) == null)
                     System.out.print("O ");
-                if(board[x][y] != null)
+                if(board.get(x).get(y) != null)
                     System.out.print("X");
             }
             System.out.println();
@@ -35,14 +35,14 @@ public class Board {
 
     public void setPiece(Piece piece, int x, int y){
         System.out.println("fdasf");
-        board[x][y] = new piece;
+        board.get(x).set(y, piece);
     }
 
-    public ArrayList[][] getBoard() {
+    public ArrayList<ArrayList<Piece>> getBoard() {
         return board;
     }
 
-    public void setBoard(ArrayList[][] board) {
+    public void setBoard(ArrayList<ArrayList<Piece>> board) {
         this.board = board;
     }
 
