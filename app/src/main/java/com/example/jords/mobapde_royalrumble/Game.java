@@ -22,7 +22,8 @@ public class Game {
 
         while(true){
 
-            System.out.println("Player 1 enter move: ");
+            System.out.println("Player 1 what move: ");
+
 
 
         }

@@ -1,5 +1,7 @@
 package com.example.jords.mobapde_royalrumble;
 
+import static java.lang.Math.abs;
+
 /**
  * Created by Jords on 11/5/2017.
  */
@@ -48,7 +50,11 @@ public class Checkers{
         board.print();
     }
 
-    public void checkMove(){
+    public void checkMove(int initX, int initY, int newX, int newY){
+
+        int tempX = abs(initX-newX);
+        int tempY = abs(initY-newY);
+
 
     }
 
