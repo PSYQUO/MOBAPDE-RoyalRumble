@@ -50,12 +50,26 @@ public class Checkers{
         board.print();
     }
 
-    public void checkMove(int initX, int initY, int newX, int newY){
+    public boolean checkMove(int initX, int initY, int newX, int newY, Player player){
+
+
 
         int tempX = abs(initX-newX);
         int tempY = abs(initY-newY);
 
+        if (player.getPnum() == board.getBoard().get(initX).get(initY).getPiece().getPlayer().getPnum()) {
+            if (tempX == 1 && tempY == 1) {
+                return true;
+            }
+        }
 
+
+        return false;
+    }
+
+    public void move(int initX, int initY, int newX, int newY){
+//        Piece temp = board.getPiece(initX, initY);
+        board.setPiece(board.getPiece(initX, initY), newX, newY);
     }
 
 }

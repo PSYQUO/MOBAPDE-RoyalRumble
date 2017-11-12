@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         PixelGridView pixelGrid = new PixelGridView(this);
         pixelGrid.setNumColumns(10);
         pixelGrid.setNumRows(10);
-
         setContentView(pixelGrid);
         */
     }

@@ -41,6 +41,12 @@ public class Board {
         board.get(x).get(y).setPiece(piece);
     }
 
+    public Piece getPiece(int x, int y){
+        Piece piece = board.get(x).get(y).getPiece();
+        board.get(x).get(y).removePiece();
+        return piece;
+    }
+
     public ArrayList<ArrayList<Tile>> getBoard() {
         return board;
     }
