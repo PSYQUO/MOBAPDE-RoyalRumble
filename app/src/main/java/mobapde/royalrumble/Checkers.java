@@ -26,14 +26,20 @@ public class Checkers{
         board.setPiece(new Piece(player1, "checkers", "black"), 1, 2);
         board.setPiece(new Piece(player1, "checkers", "black"), 1, 4);
         board.setPiece(new Piece(player1, "checkers", "black"), 1, 6);
-        board.setPiece(new Piece(player1, "checkers", "black"), 2, 1);
+
+//        board.setPiece(new Piece(player1, "checkers", "black"), 2, 1);
+        board.setPiece(new Piece(player1, "checkers", "black"), 3, 0);
+
         board.setPiece(new Piece(player1, "checkers", "black"), 2, 3);
         board.setPiece(new Piece(player1, "checkers", "black"), 2, 5);
         board.setPiece(new Piece(player1, "checkers", "black"), 2, 7);
 
 
         board.setPiece(new Piece(player2, "checkers", "black"), 5, 0);
-        board.setPiece(new Piece(player2, "checkers", "black"), 5, 2);
+
+        board.setPiece(new Piece(player2, "checkers", "black"), 4, 1);
+//        board.setPiece(new Piece(player2, "checkers", "black"), 5, 2);
+
         board.setPiece(new Piece(player2, "checkers", "black"), 5, 4);
         board.setPiece(new Piece(player2, "checkers", "black"), 5, 6);
         board.setPiece(new Piece(player2, "checkers", "black"), 6, 1);
@@ -50,21 +56,29 @@ public class Checkers{
         board.print();
     }
 
-    public boolean checkMove(int initX, int initY, int newX, int newY, Player player){
-
-
-
+    public String checkMove(int initX, int initY, int newX, int newY, Player player){
         int tempX = abs(initX-newX);
         int tempY = abs(initY-newY);
 
         if (player.getPnum() == board.getBoard().get(initX).get(initY).getPiece().getPlayer().getPnum()) {
             if (tempX == 1 && tempY == 1) {
-                return true;
+                if (!board.isTherePiece(newX, newY))
+                return "move";
+            }
+            else if (tempX == 2 && tempY == 2) {
+                if (!board.isTherePiece(abs(initX-newX), abs(initY-newY))) {
+                    return "attack";
+                }
             }
         }
 
+        return "none";
+    }
 
-        return false;
+    public void attack(int initX, int initY, int newX, int newY){
+//        Piece temp = board.getPiece(initX, initY);
+       // board.removePiece(abs(initX-newX), abs(initY-newY));
+        board.setPiece(board.getPiece(initX, initY), newX, newY);
     }
 
     public void move(int initX, int initY, int newX, int newY){
