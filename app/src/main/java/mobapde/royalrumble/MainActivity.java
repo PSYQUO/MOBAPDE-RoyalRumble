@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jords.mobapde_royalrumble.R;
+import mobapde.royalrumble.R;
 
 public class MainActivity extends AppCompatActivity {
 
