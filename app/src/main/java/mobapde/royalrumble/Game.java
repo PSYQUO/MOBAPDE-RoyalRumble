@@ -1,4 +1,4 @@
-package mobapde.royalrumble;
+package com.example.jords.mobapde_royalrumble;
 
 import java.util.Scanner;
 
@@ -22,6 +22,7 @@ public class Game {
         Scanner sc = new Scanner(System.in);
 
         int x, y, newx, newy;
+        String check = null;
 
         while(true){
             x = 0;
@@ -37,10 +38,16 @@ public class Game {
             System.out.print("newY = ");
             newy = sc.nextInt();
 
-            if(game.checkMove(x, y, newx, newy, player1))
+            check = game.checkMove(x, y, newx, newy, player1);
+
+            if(check.equals("move"))
                 game.move(x, y, newx, newy);
+            else if(check.equals("attack"))
+                game.attack(x, y, newx, newy);
             else
                 System.out.println("Invalid Move "+ player1.getName() + "!!");
+
+            game.print();
 
             System.out.println(player2.getName() + ": ");
             System.out.print("X = ");
@@ -52,10 +59,14 @@ public class Game {
             System.out.print("newY = ");
             newy = sc.nextInt();
 
-            if(game.checkMove(x, y, newx, newy, player2))
+            check = game.checkMove(x, y, newx, newy, player2);
+
+            if(check.equals("move"))
                 game.move(x, y, newx, newy);
+            else if(check.equals("attack"))
+                game.attack(x, y, newx, newy);
             else
-                System.out.println("Invalid Move "+ player2.getName() +"!!");
+                System.out.println("Invalid Move "+ player2.getName() + "!!");
 
             game.print();
         }

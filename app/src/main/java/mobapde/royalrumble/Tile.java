@@ -8,7 +8,7 @@ public class Tile {
     private Piece piece;
 
     public Tile(){
-
+        piece = null;
     }
 
     public void setPiece(Piece piece){
