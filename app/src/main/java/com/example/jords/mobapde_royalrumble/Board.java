@@ -26,12 +26,26 @@ public class Board {
     }
 
     public void print(){
+
+        System.out.print("  ");
+        for (int x = 0; x < sizex; x++)
+            System.out.print(x + " ");
+
+        System.out.println();
+
         for(int x = 0; x < sizex; x++){
+            System.out.print(x + " ");
             for (int y = 0; y < sizey; y++){
-                if(board.get(x).get(y).getPiece() == null)
-                    System.out.print("O ");
-                else if(board.get(x).get(y).getPiece() != null)
-                    System.out.print("X ");
+                if(board.get(x).get(y).getPiece() == null) {
+                    //you can use type as the avatar of the piece
+                    System.out.print("- ");
+                } else if(board.get(x).get(y).getPiece() != null) {
+                    //you can use type as the avatar of the piece
+                    if(board.get(x).get(y).getPiece().getPlayer().getPnum() == 1)
+                        System.out.print("O ");
+                    if(board.get(x).get(y).getPiece().getPlayer().getPnum() == 2)
+                        System.out.print("X ");
+                }
             }
             System.out.println();
         }
@@ -45,6 +59,17 @@ public class Board {
         Piece piece = board.get(x).get(y).getPiece();
         board.get(x).get(y).removePiece();
         return piece;
+    }
+
+    public void removePiece(int x, int y){
+        board.get(x).get(y).removePiece();
+    }
+
+    public boolean isTherePiece(int x, int y){
+        if(board.get(x).get(y).getPiece() == null)
+            return false;
+        System.out.println("dasf");
+        return true;
     }
 
     public ArrayList<ArrayList<Tile>> getBoard() {
