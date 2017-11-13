@@ -65,9 +65,8 @@ public class Checkers{
                 if (!board.isTherePiece(newX, newY))
                 return "move";
             }
-            if (tempX == 2 && tempY == 2) {
+            else if (tempX == 2 && tempY == 2) {
                 if (!board.isTherePiece(abs(initX-newX), abs(initY-newY))) {
-                    attack(initX, initY, newX, newY);
                     return "attack";
                 }
             }
@@ -78,8 +77,7 @@ public class Checkers{
 
     public void attack(int initX, int initY, int newX, int newY){
 //        Piece temp = board.getPiece(initX, initY);
-        System.out.println(abs(initX-newX) + " " + abs(initY-newY));
-        board.removePiece(abs(initX-newX), abs(initY-newY));
+       // board.removePiece(abs(initX-newX), abs(initY-newY));
         board.setPiece(board.getPiece(initX, initY), newX, newY);
     }
 

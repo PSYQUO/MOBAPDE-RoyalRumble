@@ -56,6 +56,7 @@ public class Board {
     }
 
     public Piece getPiece(int x, int y){
+        System.out.println(x + " " + y);
         Piece piece = board.get(x).get(y).getPiece();
         board.get(x).get(y).removePiece();
         return piece;
@@ -68,7 +69,6 @@ public class Board {
     public boolean isTherePiece(int x, int y){
         if(board.get(x).get(y).getPiece() == null)
             return false;
-        System.out.println("dasf");
         return true;
     }
 
