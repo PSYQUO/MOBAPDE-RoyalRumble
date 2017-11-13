@@ -2,21 +2,22 @@ package mobapde.royalrumble;
 
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import mobapde.royalrumble.R;
+public class MainActivity extends AppCompatActivity
+{
 
-public class MainActivity extends AppCompatActivity {
+    Canvas canvas;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(new GameView(this));
 
         TextView iv = (TextView) findViewById(R.id.touch_start);
         ObjectAnimator scaleDown = ObjectAnimator.ofPropertyValuesHolder(
