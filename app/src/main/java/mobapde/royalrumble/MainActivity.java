@@ -1,4 +1,4 @@
-package com.example.jords.mobapde_royalrumble;
+package mobapde.royalrumble;
 
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
@@ -8,6 +8,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.jords.mobapde_royalrumble.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.jords.mobapde_royalrumble;
+package mobapde.royalrumble;
 
 import java.util.Scanner;
 

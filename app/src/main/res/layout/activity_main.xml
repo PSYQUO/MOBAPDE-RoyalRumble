@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:clipToPadding="false"
-    tools:context="com.example.jords.mobapde_royalrumble.MainActivity"
+    tools:context="mobapde.royalrumble.MainActivity"
     android:duration="1000"
     android:fromXScale="1"
     android:fromYScale="1"

@@ -1,7 +1,6 @@
-package com.example.jords.mobapde_royalrumble;
+package mobapde.royalrumble;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Jords on 11/6/2017.

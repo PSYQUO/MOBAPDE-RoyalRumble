@@ -1,6 +1,4 @@
-package com.example.jords.mobapde_royalrumble;
-
-import android.graphics.Color;
+package mobapde.royalrumble;
 
 /**
  * Created by Jords on 11/6/2017.
