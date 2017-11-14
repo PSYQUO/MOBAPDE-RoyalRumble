@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".TicTacToeActivity" />
-        <activity android:name=".game.GameMenuActivity"></activity>
+        <activity android:name=".GameMenuActivity" />
+        <activity android:name=".MenuActivity"></activity>
     </application>
 
 </manifest>

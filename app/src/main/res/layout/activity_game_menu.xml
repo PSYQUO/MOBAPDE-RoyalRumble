@@ -34,7 +34,7 @@
         android:layout_weight="6">
 
         <Button
-            android:id="@+id/btn_play"
+            android:id="@+id/btn_rps"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -44,7 +44,7 @@
             android:background="@null"/>
 
         <Button
-            android:id="@+id/btn_option"
+            android:id="@+id/btn_checkers"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -54,7 +54,7 @@
             android:background="@null"/>
 
         <Button
-            android:id="@+id/btn_credits"
+            android:id="@+id/btn_tictactoe"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -64,7 +64,6 @@
             android:background="@null"/>
 
         <Button
-            android:id="@+id/btn_quit"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"

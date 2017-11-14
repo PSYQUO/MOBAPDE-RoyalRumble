@@ -28,7 +28,7 @@ public class CheckersActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tictactoe);
+        setContentView(R.layout.checkers);
 
         PixelGridView pixelGrid = new PixelGridView(this);
         pixelGrid.setType("checkers");
