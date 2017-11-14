@@ -1,4 +1,4 @@
-package mobapde.royalrumble;
+package mobapde.royalrumble.game;
 
 /**
  * Created by Jords on 11/6/2017.

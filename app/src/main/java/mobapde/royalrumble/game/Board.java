@@ -1,7 +1,6 @@
-package mobapde.royalrumble;
+package mobapde.royalrumble.game;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Jords on 11/6/2017.

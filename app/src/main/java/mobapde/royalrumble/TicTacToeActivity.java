@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
-public class TicTacToe extends AppCompatActivity
+import mobapde.royalrumble.game.PixelGridView;
+
+public class TicTacToeActivity extends AppCompatActivity
 {
     LinearLayout gridView;
 

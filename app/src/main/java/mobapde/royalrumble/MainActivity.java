@@ -4,12 +4,6 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
@@ -18,7 +12,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.title_screen);
 
         TextView iv = (TextView) findViewById(R.id.touch_start);
         ObjectAnimator scaleDown = ObjectAnimator.ofPropertyValuesHolder(
@@ -29,5 +23,17 @@ public class MainActivity extends AppCompatActivity
         scaleDown.setRepeatCount(ObjectAnimator.INFINITE);
         scaleDown.setRepeatMode(ObjectAnimator.REVERSE);
         scaleDown.start();
+
+        /**
+         * Use this for checkers
+         */
+//        LinearLayout gridView;
+//
+//        PixelGridView pixelGrid = new PixelGridView(this);
+//        pixelGrid.setType("checkers");
+//        pixelGrid.setNumColumns(8);
+//        pixelGrid.setNumRows(8);
+//        gridView = (LinearLayout) findViewById(R.id.grid);
+//        gridView.addView(pixelGrid);
     }
 }

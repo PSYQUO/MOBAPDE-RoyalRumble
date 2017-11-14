@@ -5,11 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.Scanner;
 
+import mobapde.royalrumble.game.PixelGridView;
+import mobapde.royalrumble.game.Player;
+
 /**
  * Created by Jords on 11/6/2017.
  */
 
-public class Game extends AppCompatActivity
+public class GameActivity extends AppCompatActivity
 {
     Player player1, player2;
 
@@ -30,14 +33,14 @@ public class Game extends AppCompatActivity
 
     }
 
-    public Game(){
+    public GameActivity(){
         player1 = new Player(1, "Meruem");
         player2 = new Player(2, "Komugi");
     }
 
     public void playCheckers(){
 
-        Checkers game = new Checkers(player1, player2);
+        CheckersActivity game = new CheckersActivity(player1, player2);
         game.print();
 
         Scanner sc = new Scanner(System.in);
