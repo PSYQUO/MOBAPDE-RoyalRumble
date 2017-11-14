@@ -41,7 +41,7 @@
             android:text="Play"
             android:fontFamily="serif"
             android:textSize="20dp"
-            android:background="null"/>
+            android:background="@null"/>
 
         <Button
             android:id="@+id/btn_option"
@@ -51,7 +51,7 @@
             android:text="Options"
             android:fontFamily="serif"
             android:textSize="20dp"
-            android:background="null"/>
+            android:background="@null"/>
 
         <Button
             android:id="@+id/btn_credits"
@@ -61,7 +61,7 @@
             android:text="Credits"
             android:fontFamily="serif"
             android:textSize="20dp"
-            android:background="null"/>
+            android:background="@null"/>
 
         <Button
             android:id="@+id/btn_quit"
@@ -71,7 +71,7 @@
             android:text="Quit"
             android:fontFamily="serif"
             android:textSize="20dp"
-            android:background="null"/>
+            android:background="@null"/>
 
 
     </LinearLayout>

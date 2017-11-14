@@ -17,7 +17,8 @@ public class GameActivity extends AppCompatActivity
     Player player1, player2;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.checkers);
 
@@ -30,16 +31,16 @@ public class GameActivity extends AppCompatActivity
         player2 = new Player(2, "Komugi");
 
 //        String game = getIntent().getExtras().getInt(game);
-
     }
 
-    public GameActivity(){
+    public GameActivity()
+    {
         player1 = new Player(1, "Meruem");
         player2 = new Player(2, "Komugi");
     }
 
-    public void playCheckers(){
-
+    public void playCheckers()
+    {
         CheckersActivity game = new CheckersActivity(player1, player2);
         game.print();
 
@@ -48,7 +49,8 @@ public class GameActivity extends AppCompatActivity
         int x, y, newx, newy;
         String check = null;
 
-        while(true){
+        while(true)
+        {
             x = 0;
             y = 0;
 
@@ -69,7 +71,7 @@ public class GameActivity extends AppCompatActivity
             else if(check.equals("attack"))
                 game.attack(x, y, newx, newy);
             else
-                System.out.println("Invalid Move "+ player1.getName() + "!!");
+                System.out.println("Invalid Move " + player1.getName() + "!!");
 
             game.print();
 
@@ -90,11 +92,9 @@ public class GameActivity extends AppCompatActivity
             else if(check.equals("attack"))
                 game.attack(x, y, newx, newy);
             else
-                System.out.println("Invalid Move "+ player2.getName() + "!!");
+                System.out.println("Invalid Move " + player2.getName() + "!!");
 
             game.print();
         }
-
     }
-
 }
