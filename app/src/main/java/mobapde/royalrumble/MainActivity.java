@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity
         scaleDown.setRepeatMode(ObjectAnimator.REVERSE);
         scaleDown.start();
 
+
         /**
          * Use this for checkers
          */
@@ -36,4 +37,8 @@ public class MainActivity extends AppCompatActivity
 //        gridView = (LinearLayout) findViewById(R.id.grid);
 //        gridView.addView(pixelGrid);
     }
+
+
+
+
 }
