@@ -1,4 +1,4 @@
-package mobapde.royalrumble;
+package mobapde.royalrumble.game;
 
 import android.content.Context;
 import android.graphics.Canvas;

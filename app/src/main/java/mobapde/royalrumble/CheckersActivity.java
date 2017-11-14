@@ -4,13 +4,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
 
+import mobapde.royalrumble.game.Board;
+import mobapde.royalrumble.game.Piece;
+import mobapde.royalrumble.game.PixelGridView;
+import mobapde.royalrumble.game.Player;
+
 import static java.lang.Math.abs;
 
 /**
  * Created by Jords on 11/5/2017.
  */
 
-public class Checkers extends AppCompatActivity
+public class CheckersActivity extends AppCompatActivity
 {
     private Board board;
     private final static int SIZEX = 8;
@@ -34,8 +39,7 @@ public class Checkers extends AppCompatActivity
         gridView.addView(pixelGrid);
     }
 
-
-    public Checkers(Player player1, Player player2)
+    public CheckersActivity(Player player1, Player player2)
     {
         board = new Board(SIZEX, SIZEY);
         this.player1 = player1;

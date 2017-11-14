@@ -1,4 +1,4 @@
-package mobapde.royalrumble;
+package mobapde.royalrumble.game;
 
 import java.util.ArrayList;
 
