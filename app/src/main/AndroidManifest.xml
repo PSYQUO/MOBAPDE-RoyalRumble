@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".eaa"></activity>
+        <activity android:name=".eaa" />
+        <activity android:name=".TicTacToe"></activity>
     </application>
 
 </manifest>

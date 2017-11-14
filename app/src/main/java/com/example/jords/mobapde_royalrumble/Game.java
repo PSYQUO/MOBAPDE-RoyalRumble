@@ -1,13 +1,35 @@
 package com.example.jords.mobapde_royalrumble;
 
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
+import android.widget.TextView;
+
 import java.util.Scanner;
 
 /**
  * Created by Jords on 11/6/2017.
  */
 
-public class Game {
+public class Game extends AppCompatActivity{
     Player player1, player2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.checkers);
+
+        PixelGridView pixelGrid = new PixelGridView(this);
+        pixelGrid.setNumColumns(10);
+        pixelGrid.setNumRows(10);
+        setContentView(pixelGrid);
+
+        player1 = new Player(1, "Meruem");
+        player2 = new Player(2, "Komugi");
+
+//        String game = getIntent().getExtras().getInt(game);
+
+    }
 
     public Game(){
         player1 = new Player(1, "Meruem");
