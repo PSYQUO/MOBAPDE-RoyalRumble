@@ -4,23 +4,26 @@ package mobapde.royalrumble;
  * Created by Jords on 11/6/2017.
  */
 
-public class Tile {
+public class Tile
+{
     private Piece piece;
 
-    public Tile(){
+    public Tile()
+    {
         piece = null;
+    }
+
+    public Piece getPiece()
+    {
+        return piece;
     }
 
     public void setPiece(Piece piece){
         this.piece = piece;
     }
 
-    public Piece getPiece() {
-        return piece;
-    }
-
-    public void removePiece(){
+    public void removePiece()
+    {
         this.piece = null;
     }
-
 }

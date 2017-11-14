@@ -18,7 +18,7 @@ public class GameView extends View
         super(context);
 
         paint = new Paint();
-        paint.setARGB(225, 128, 128 , 128);
+        paint.setARGB(225, 128, 128, 128);
     }
 
     @Override

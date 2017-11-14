@@ -12,12 +12,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
-
-    LinearLayout gridView;
-
+public class MainActivity extends AppCompatActivity
+{
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -30,17 +29,5 @@ public class MainActivity extends AppCompatActivity {
         scaleDown.setRepeatCount(ObjectAnimator.INFINITE);
         scaleDown.setRepeatMode(ObjectAnimator.REVERSE);
         scaleDown.start();
-
-
-//        PixelGridView pixelGrid = new PixelGridView(this);
-//        pixelGrid.setType("checkers");
-//        pixelGrid.setNumColumns(8);
-//        pixelGrid.setNumRows(8);
-//
-//
-//        gridView = (LinearLayout) findViewById(R.id.grid);
-//
-//        gridView.addView(pixelGrid);
-
     }
 }

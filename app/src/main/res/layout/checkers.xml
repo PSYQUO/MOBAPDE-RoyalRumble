@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_margin="10dp"
+        android:orientation="horizontal"
         android:weightSum="1">
 
         <ImageView
             android:layout_width="26dp"
             android:layout_height="33dp"
-            android:src="@drawable/clock"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginRight="5dp"
+            android:src="@drawable/clock"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,79 +23,73 @@
             android:gravity="center_vertical|right"
             android:text="0:34"/>
 
-
-
-
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_alignParentLeft="true"
             android:layout_margin="20dp"
-            android:layout_alignParentLeft="true">
+            android:orientation="vertical">
+
             <TextView
+                android:id="@+id/player1_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name"
-                android:id="@+id/player1_name"
-                android:layout_marginBottom="5dp"/>
+                android:layout_marginBottom="5dp"
+                android:text="Name"/>
 
             <LinearLayout
                 android:layout_width="76dp"
                 android:layout_height="72dp"
                 android:background="@drawable/customborder">
-
             </LinearLayout>
+
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="vs"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:text="vs"/>
 
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_alignParentRight="true"
             android:layout_margin="20dp"
-            android:layout_alignParentRight="true">
+            android:orientation="vertical">
+
             <TextView
+                android:id="@+id/player2_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name"
-                android:id="@+id/player2_name"
-                android:layout_marginBottom="5dp"/>
+                android:layout_marginBottom="5dp"
+                android:text="Name"/>
 
             <LinearLayout
                 android:layout_width="76dp"
                 android:layout_height="72dp"
                 android:background="@drawable/customborder">
-
             </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>
 
-
-
     <LinearLayout
+        android:id="@+id/grid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/grid"
-        android:orientation="horizontal"
         android:layout_margin="50dp"
         android:background="@drawable/customborder"
-        >
+        android:orientation="horizontal">
 
     </LinearLayout>
-
 </LinearLayout>

@@ -13,48 +13,58 @@ import android.view.View;
  * Created by Jords on 11/12/2017.
  */
 
-public class PixelGridView extends View{
+public class PixelGridView extends View
+{
     private int numColumns, numRows;
     private int cellWidth, cellHeight;
     private Paint blackPaint = new Paint();
     private boolean[][] cellChecked;
     private String type;
 
-    public PixelGridView(Context context) {
+    public PixelGridView(Context context)
+    {
         this(context, null);
     }
 
-    public PixelGridView(Context context, AttributeSet attrs) {
+    public PixelGridView(Context context, AttributeSet attrs)
+    {
         super(context, attrs);
         blackPaint.setStyle(Paint.Style.FILL_AND_STROKE);
     }
 
-    public void setNumColumns(int numColumns) {
+    public void setNumColumns(int numColumns)
+    {
         this.numColumns = numColumns;
         calculateDimensions();
     }
 
-    public int getNumColumns() {
+    public int getNumColumns()
+    {
         return numColumns;
     }
 
-    public void setNumRows(int numRows) {
+    public void setNumRows(int numRows)
+    {
         this.numRows = numRows;
         calculateDimensions();
     }
 
-    public int getNumRows() {
+    public int getNumRows()
+    {
         return numRows;
     }
 
     @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+    protected void onSizeChanged(int w, int h, int oldw, int oldh)
+    {
         super.onSizeChanged(w, h, oldw, oldh);
         calculateDimensions();
     }
 
-    private void calculateDimensions() {
-        if (numColumns < 1 || numRows < 1) {
+    private void calculateDimensions()
+    {
+        if(numColumns < 1 || numRows < 1)
+        {
             return;
         }
 
@@ -67,9 +77,11 @@ public class PixelGridView extends View{
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(Canvas canvas)
+    {
         canvas.drawColor(Color.WHITE);
-        if (numColumns == 0 || numRows == 0) {
+        if(numColumns == 0 || numRows == 0)
+        {
             return;
         }
 
@@ -78,9 +90,12 @@ public class PixelGridView extends View{
 
         doType(type);
 
-        for (int i = 0; i < numColumns; i++) {
-            for (int j = 0; j < numRows; j++) {
-                if (cellChecked[i][j]) {
+        for(int i = 0; i < numColumns; i++)
+        {
+            for(int j = 0; j < numRows; j++)
+            {
+                if(cellChecked[i][j])
+                {
                     canvas.drawRect(i * cellWidth, j * cellHeight,
                             (i + 1) * cellWidth, (j + 1) * cellHeight,
                             blackPaint);
@@ -88,23 +103,29 @@ public class PixelGridView extends View{
             }
         }
 
-        for (int i = 1; i < numColumns; i++) {
+        for(int i = 1; i < numColumns; i++)
+        {
             canvas.drawLine(i * cellWidth, 0, i * cellWidth, height, blackPaint);
         }
 
-        for (int i = 1; i < numRows; i++) {
+        for(int i = 1; i < numRows; i++)
+        {
             canvas.drawLine(0, i * cellHeight, width, i * cellHeight, blackPaint);
         }
     }
 
-    public void setType(String type){
+    public void setType(String type)
+    {
         this.type = type;
     }
 
-    public void doType(String type){
+    public void doType(String type)
+    {
         if(type.equalsIgnoreCase("checkers"))
-            for (int x = 0; x < numRows; x++){
-                for(int y = 0; y < numColumns; y++){
+            for(int x = 0; x < numRows; x++)
+            {
+                for(int y = 0; y < numColumns; y++)
+                {
                     if(y % 2 == x % 2)
                         cellChecked[y][x] = !cellChecked[y][x];
                 }
@@ -112,7 +133,8 @@ public class PixelGridView extends View{
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(MotionEvent event)
+    {
        /* if (event.getAction() == MotionEvent.ACTION_DOWN) {
             int column = (int)(event.getX() / cellWidth);
             int row = (int)(event.getY() / cellHeight);

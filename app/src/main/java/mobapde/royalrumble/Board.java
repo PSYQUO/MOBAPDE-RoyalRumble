@@ -14,10 +14,10 @@ public class Board {
     public Board(int sizex, int sizey){
         this.sizex = sizex;
         this.sizey = sizey;
-        board = new ArrayList<ArrayList<Tile>>();
+        board = new ArrayList<>();
 
         for (int i = 0; i < sizex; i++) {
-            ArrayList<Tile> x = new ArrayList<Tile>();
+            ArrayList<Tile> x = new ArrayList<>();
             for(int j = 0; j < sizey; j++)
                 x.add(new Tile());
             board.add(x);

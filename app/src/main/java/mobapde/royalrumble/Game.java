@@ -2,8 +2,6 @@ package mobapde.royalrumble;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
-import android.widget.TextView;
 
 import java.util.Scanner;
 
@@ -11,7 +9,8 @@ import java.util.Scanner;
  * Created by Jords on 11/6/2017.
  */
 
-public class Game extends AppCompatActivity{
+public class Game extends AppCompatActivity
+{
     Player player1, player2;
 
     @Override

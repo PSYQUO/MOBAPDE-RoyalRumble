@@ -4,12 +4,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
-public class TicTacToe extends AppCompatActivity {
-
+public class TicTacToe extends AppCompatActivity
+{
     LinearLayout gridView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tictactoe);
 
@@ -18,10 +19,8 @@ public class TicTacToe extends AppCompatActivity {
         pixelGrid.setNumColumns(3);
         pixelGrid.setNumRows(3);
 
-
         gridView = (LinearLayout) findViewById(R.id.grid);
 
         gridView.addView(pixelGrid);
-
     }
 }
