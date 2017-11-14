@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.checkers);
+        setContentView(R.layout.activity_main);
 
         TextView iv = (TextView) findViewById(R.id.touch_start);
         ObjectAnimator scaleDown = ObjectAnimator.ofPropertyValuesHolder(
@@ -32,15 +32,15 @@ public class MainActivity extends AppCompatActivity {
         scaleDown.start();
 
 
-        PixelGridView pixelGrid = new PixelGridView(this);
-        pixelGrid.setType("checkers");
-        pixelGrid.setNumColumns(8);
-        pixelGrid.setNumRows(8);
-
-
-        gridView = (LinearLayout) findViewById(R.id.grid);
-
-        gridView.addView(pixelGrid);
+//        PixelGridView pixelGrid = new PixelGridView(this);
+//        pixelGrid.setType("checkers");
+//        pixelGrid.setNumColumns(8);
+//        pixelGrid.setNumRows(8);
+//
+//
+//        gridView = (LinearLayout) findViewById(R.id.grid);
+//
+//        gridView.addView(pixelGrid);
 
     }
 }
