@@ -22,7 +22,7 @@ public class GameMenuActivity extends AppCompatActivity {
         checkers = (Button) findViewById(R.id.btn_checkers);
         tictactoe = (Button) findViewById(R.id.btn_tictactoe);
         rps = (Button) findViewById(R.id.btn_rps);
-        back_btn = (ImageView) findViewById(R.id.back_btn);
+        back_btn = (ImageView) findViewById(R.id.back_btn_play);
         back_btn.setClickable(true);
 
         back_btn.setOnClickListener(new View.OnClickListener() {

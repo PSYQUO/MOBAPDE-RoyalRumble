@@ -31,6 +31,26 @@ public class MenuActivity extends AppCompatActivity
             }
         });
 
+        options.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent i = new Intent(MenuActivity.this, OptionsActivity.class);
+                MenuActivity.this.startActivity(i);
+            }
+        });
+
+        credits.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent i = new Intent(MenuActivity.this, CreditsActivity.class);
+                MenuActivity.this.startActivity(i);
+            }
+        });
+
         quit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
