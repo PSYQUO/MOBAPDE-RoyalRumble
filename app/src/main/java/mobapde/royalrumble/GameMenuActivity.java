@@ -32,6 +32,14 @@ public class GameMenuActivity extends AppCompatActivity {
             }
         });
 
+        rps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(GameMenuActivity.this, RPSActivity.class);
+                GameMenuActivity.this.startActivity(i);
+            }
+        });
+
         checkers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

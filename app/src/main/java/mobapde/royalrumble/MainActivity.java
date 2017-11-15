@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import mobapde.royalrumble.service.BackgroundSoundService;
+
 public class MainActivity extends AppCompatActivity
 {
     RelativeLayout screen;
@@ -31,6 +33,10 @@ public class MainActivity extends AppCompatActivity
         scaleDown.start();
 
         screen = (RelativeLayout) findViewById(R.id.title);
+
+        Intent bgmusic = new Intent(this, BackgroundSoundService.class);
+        startService(bgmusic);
+
 
         screen.setOnClickListener(new View.OnClickListener()
         {
