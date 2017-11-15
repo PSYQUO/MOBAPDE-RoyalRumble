@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".TicTacToeActivity" />
         <activity android:name=".GameMenuActivity" />
-        <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".CheckersActivity" />
     </application>
 
 </manifest>
