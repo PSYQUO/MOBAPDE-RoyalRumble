@@ -14,8 +14,8 @@ import android.widget.LinearLayout;
 
 import mobapde.royalrumble.game.PixelGridView;
 
-public class TicTacToeActivity extends AppCompatActivity
-{
+public class RPSActivity extends AppCompatActivity {
+
     LinearLayout gridView;
     ImageView pause_btn;
     Button resume_btn, quit_btn;
@@ -24,12 +24,12 @@ public class TicTacToeActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tictactoe);
+        setContentView(R.layout.rps);
 
         PixelGridView pixelGrid = new PixelGridView(this);
-        pixelGrid.setType("tictactoe");
-        pixelGrid.setNumColumns(3);
-        pixelGrid.setNumRows(3);
+        pixelGrid.setType("rps");
+        pixelGrid.setNumColumns(2);
+        pixelGrid.setNumRows(1);
 
         gridView = (LinearLayout) findViewById(R.id.grid);
 

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.Scanner;
 
+import mobapde.royalrumble.game.Checkers;
 import mobapde.royalrumble.game.PixelGridView;
 import mobapde.royalrumble.game.Player;
 
@@ -41,7 +42,7 @@ public class GameActivity extends AppCompatActivity
 
     public void playCheckers()
     {
-        CheckersActivity game = new CheckersActivity(player1, player2);
+        Checkers game = new Checkers(player1, player2);
         game.print();
 
         Scanner sc = new Scanner(System.in);
