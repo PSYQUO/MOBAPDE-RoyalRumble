@@ -64,6 +64,7 @@ public class CheckersActivity extends AppCompatActivity {
                 /*Intent i = new Intent(CheckersActivity.this, GameMenuActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);*/
+                dialog.dismiss();
                 finish();
             }
         });
@@ -73,7 +74,6 @@ public class CheckersActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.show();
-
             }
         });
     }
