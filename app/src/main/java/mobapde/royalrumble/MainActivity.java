@@ -3,16 +3,14 @@ package mobapde.royalrumble;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
-
     RelativeLayout screen;
     final int MAIN_TOUCH = 0;
 
@@ -34,9 +32,11 @@ public class MainActivity extends AppCompatActivity
 
         screen = (RelativeLayout) findViewById(R.id.title);
 
-        screen.setOnClickListener(new View.OnClickListener() {
+        screen.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent i = new Intent(MainActivity.this, MenuActivity.class);
                 MainActivity.this.startActivity(i);
             }
@@ -54,8 +54,4 @@ public class MainActivity extends AppCompatActivity
 //        gridView = (LinearLayout) findViewById(R.id.grid);
 //        gridView.addView(pixelGrid);
     }
-
-
-
-
 }

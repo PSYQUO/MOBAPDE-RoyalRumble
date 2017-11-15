@@ -1,19 +1,18 @@
 package mobapde.royalrumble;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import mobapde.royalrumble.R;
-
-public class MenuActivity extends AppCompatActivity {
-
+public class MenuActivity extends AppCompatActivity
+{
     Button play, options, credits, quit;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
 
@@ -22,9 +21,11 @@ public class MenuActivity extends AppCompatActivity {
         credits = (Button) findViewById(R.id.btn_credits);
         quit = (Button) findViewById(R.id.btn_quit);
 
-        play.setOnClickListener(new View.OnClickListener() {
+        play.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent i = new Intent(MenuActivity.this, GameMenuActivity.class);
                 MenuActivity.this.startActivity(i);
             }
