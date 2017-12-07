@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity
 {
     RelativeLayout screen;
     final int MAIN_TOUCH = 0;
+    Intent bgmusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity
 
         screen = (RelativeLayout) findViewById(R.id.title);
 
-        Intent bgmusic = new Intent(this, BackgroundSoundService.class);
+         bgmusic = new Intent(this, BackgroundSoundService.class);
         startService(bgmusic);
 
 
@@ -60,4 +61,11 @@ public class MainActivity extends AppCompatActivity
 //        gridView = (LinearLayout) findViewById(R.id.grid);
 //        gridView.addView(pixelGrid);
     }
+
+    public void onPause(){
+        stopService(bgmusic);
+        super.onPause();
+
+    }
+
 }

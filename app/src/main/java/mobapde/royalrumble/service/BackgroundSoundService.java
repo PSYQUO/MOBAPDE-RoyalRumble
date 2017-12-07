@@ -34,6 +34,7 @@ public class BackgroundSoundService extends Service {
         super.onDestroy();
     }
 
+
     protected void onNewIntent() {
         player.pause();
     }

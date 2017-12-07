@@ -17,7 +17,7 @@ import mobapde.royalrumble.R;
  * Created by Jords on 11/12/2017.
  */
 
-public class PixelGridView extends View
+public class TTTGridView extends View
 {
     private int numColumns, numRows;
     private int cellWidth, cellHeight;
@@ -27,44 +27,29 @@ public class PixelGridView extends View
     private Player player;
     private int turn;
     private TicTacToe tictactoe;
-    private Checkers checkers;
 
     Drawable x, o;
 
-    public PixelGridView(Context context)
+    public TTTGridView(Context context)
     {
         this(context, null);
     }
 
-    public PixelGridView(Context context, AttributeSet attrs)
+    public TTTGridView(Context context, AttributeSet attrs)
     {
         super(context, attrs);
         blackPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         x = getResources().getDrawable(R.drawable.x);
         o = getResources().getDrawable(R.drawable.o);
-        turn = 1;
+
+        System.out.println("GSDFGNKSDFJkds");
+
+        Player player1 = new Player(1, "Walker");
+        Player player2 = new Player(2, "Elric");
+        tictactoe = new TicTacToe(player1, player2);
     }
 
-    public void setNumColumns(int numColumns)
-    {
-        this.numColumns = numColumns;
-        calculateDimensions();
-    }
 
-    public int getNumColumns()
-    {
-        return numColumns;
-    }
-
-    public void setNumRows(int numRows)
-    {
-        this.numRows = numRows;
-        calculateDimensions();
-    }
-    public int getNumRows()
-    {
-        return numRows;
-    }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh)
@@ -122,38 +107,32 @@ public class PixelGridView extends View
 
     public void setCells(Canvas canvas, int i, int j){
 
-        if (type.equalsIgnoreCase("tictactoe")) {
-            if(turn == 1 ) {
+        if(tictactoe.getPiece(j, i).getPlayer().getPnum() == 1)
                 o.setBounds(i * cellWidth, j * cellHeight,
                         (i + 1) * cellWidth, (j + 1) * cellHeight);
                 o.draw(canvas);
-            }
-            else if(turn == 2) {
+
+        if(tictactoe.getPiece(j, i).getPlayer().getPnum() == 2)
                 x.setBounds(i * cellWidth, j * cellHeight,
                         (i + 1) * cellWidth, (j + 1) * cellHeight);
                 x.draw(canvas);
-            }
-        }
 
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
-
-        if(type.equalsIgnoreCase("tictactoe"))
             player = tictactoe.getTurn(turn);
-
-
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             int x = (int) (event.getX() / cellWidth);
             int y = (int) (event.getY() / cellHeight);
 
+            //REMINDER x = column: y = row
+
             if(!cellChecked[x][y]) {
-                Toast.makeText(getContext(), Integer.toString(turn), Toast.LENGTH_SHORT).show();
-                if(type.equalsIgnoreCase("tictactoe"))
-                    //tictactoe.setPiece(player, x,y);
+                tictactoe.setPiece(player, y,x);
+                //tictactoe.print();
                 cellChecked[x][y] = !cellChecked[x][y];
                 invalidate();
             }else{
@@ -169,23 +148,29 @@ public class PixelGridView extends View
         return true;
     }
 
-    public void setTicTacToe(TicTacToe tictactoe) {
-        type = "tictactoe";
-        this.tictactoe = tictactoe;
-    }
-
     public void doType(String type)
     {
-        if(type.equalsIgnoreCase("checkers"))
-            for(int x = 0; x < numRows; x++)
-            {
-                for(int y = 0; y < numColumns; y++)
-                {
-                    if(y % 2 == x % 2)
-                        cellChecked[y][x] = !cellChecked[y][x];
-                }
-            }
-       // Toast.makeText(getContext(), "Checkers", Toast.LENGTH_SHORT).show();
 
+    }
+
+    public void setNumColumns(int numColumns)
+    {
+        this.numColumns = numColumns;
+        calculateDimensions();
+    }
+
+    public int getNumColumns()
+    {
+        return numColumns;
+    }
+
+    public void setNumRows(int numRows)
+    {
+        this.numRows = numRows;
+        calculateDimensions();
+    }
+    public int getNumRows()
+    {
+        return numRows;
     }
 }

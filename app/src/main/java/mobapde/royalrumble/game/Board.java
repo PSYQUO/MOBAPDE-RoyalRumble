@@ -55,9 +55,9 @@ public class Board {
     }
 
     public Piece getPiece(int x, int y){
-        System.out.println(x + " " + y);
+//        System.out.println(x + " " + y);
         Piece piece = board.get(x).get(y).getPiece();
-        board.get(x).get(y).removePiece();
+//        board.get(x).get(y).removePiece();
         return piece;
     }
 

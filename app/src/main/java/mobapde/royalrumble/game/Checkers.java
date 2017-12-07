@@ -8,7 +8,7 @@ import static java.lang.Math.abs;
  * Created by Jords on 11/15/2017.
  */
 
-public class Checkers {
+public class Checkers extends Game{
 
     private Board board;
     private final static int SIZEX = 8;

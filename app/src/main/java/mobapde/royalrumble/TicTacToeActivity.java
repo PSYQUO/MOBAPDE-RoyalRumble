@@ -12,7 +12,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import mobapde.royalrumble.game.Board;
 import mobapde.royalrumble.game.PixelGridView;
+import mobapde.royalrumble.game.Player;
+import mobapde.royalrumble.game.TTTGridView;
+import mobapde.royalrumble.game.TicTacToe;
 
 public class TicTacToeActivity extends AppCompatActivity
 {
@@ -26,15 +30,16 @@ public class TicTacToeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tictactoe);
 
-        PixelGridView pixelGrid = new PixelGridView(this);
-        pixelGrid.setType("tictactoe");
+        TTTGridView pixelGrid = new TTTGridView(this);
         pixelGrid.setNumColumns(3);
         pixelGrid.setNumRows(3);
 
+
+
+
+
         gridView = (LinearLayout) findViewById(R.id.grid);
-
         gridView.addView(pixelGrid);
-
         pause_btn = (ImageView) findViewById(R.id.pause_btn);
         pause_btn.setClickable(true);
 

@@ -27,7 +27,7 @@ public class RPSActivity extends AppCompatActivity {
         setContentView(R.layout.rps);
 
         PixelGridView pixelGrid = new PixelGridView(this);
-        pixelGrid.setType("rps");
+        //pixelGrid.setType("rps");
         pixelGrid.setNumColumns(2);
         pixelGrid.setNumRows(1);
 
