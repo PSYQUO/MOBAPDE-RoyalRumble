@@ -80,8 +80,8 @@ public class TicTacToeActivity extends AppCompatActivity
 
 
         pause_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            @Override            public void onClick(View v) {
+
                 dialog.show();
 
             }
