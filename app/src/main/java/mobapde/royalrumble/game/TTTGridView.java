@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import mobapde.royalrumble.R;
+import mobapde.royalrumble.TicTacToeActivity;
 
 /**
  * Created by Jords on 11/12/2017.
@@ -137,8 +138,17 @@ public class TTTGridView extends View
                 invalidate();
                 if(tictactoe.getWin()){
                     Toast.makeText(getContext(), "WINNER", Toast.LENGTH_SHORT).show();
+                    TicTacToeActivity myActivity = (TicTacToeActivity) getContext();
+                    myActivity.finish();
 
                 }
+
+                if(tictactoe.getFull()){
+                    Toast.makeText(getContext(), "FULL", Toast.LENGTH_SHORT).show();
+                    TicTacToeActivity myActivity = (TicTacToeActivity) getContext();
+                    myActivity.finish();
+                }
+
             }else{
                 Toast.makeText(getContext(), "Has Been Selected Already", Toast.LENGTH_SHORT).show();
             }

@@ -10,10 +10,12 @@ public class TicTacToe extends Game{
     private Player player1, player2;
     private Board board;
     private boolean win;
+    private boolean full;
 
     public TicTacToe(Player player1, Player player2){
         board = new Board(3, 3);
         win = false;
+        full = false;
         this.player1 = player1;
         this.player2 = player2;
     }
@@ -33,13 +35,10 @@ public class TicTacToe extends Game{
 
         win = (checkWin(x, y));
 
+        full = checkFull();
+
 
     }
-
-
-
-
-
 
     public void print(){
         board.print();
@@ -47,6 +46,22 @@ public class TicTacToe extends Game{
 
     public Piece getPiece(int x, int y){
         return board.getPiece(x, y);
+    }
+
+    public boolean checkFull(){
+
+        for(int i = 0; i < board.getSizex(); i++) {
+            for (int j = 0; j < board.getSizey(); j++) {
+                try {
+                    if (board.getPiece(i, j).getPlayer() == null)
+                        return false;
+                } catch (NullPointerException e) {
+                    return false;
+            }
+            }
+        }
+
+        return true;
     }
 
     public boolean checkWin(int x, int y) {
@@ -104,6 +119,10 @@ public class TicTacToe extends Game{
 
     public boolean getWin(){
         return win;
+    }
+
+    public boolean getFull(){
+        return full;
     }
 
 }
