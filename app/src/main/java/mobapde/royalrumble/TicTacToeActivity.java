@@ -12,13 +12,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import mobapde.royalrumble.game.Board;
 import mobapde.royalrumble.game.PixelGridView;
+import mobapde.royalrumble.game.Player;
+import mobapde.royalrumble.game.TTTGridView;
+import mobapde.royalrumble.game.TicTacToe;
 
 public class TicTacToeActivity extends AppCompatActivity
 {
     LinearLayout gridView;
     ImageView pause_btn;
-    Button resume_btn, quit_btn;
+    Button resume_btn, restart_btn, quit_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,15 +30,12 @@ public class TicTacToeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tictactoe);
 
-        PixelGridView pixelGrid = new PixelGridView(this);
-        pixelGrid.setType("local");
+        TTTGridView pixelGrid = new TTTGridView(this);
         pixelGrid.setNumColumns(3);
         pixelGrid.setNumRows(3);
-
+        
         gridView = (LinearLayout) findViewById(R.id.grid);
-
         gridView.addView(pixelGrid);
-
         pause_btn = (ImageView) findViewById(R.id.pause_btn);
         pause_btn.setClickable(true);
 
@@ -48,12 +49,21 @@ public class TicTacToeActivity extends AppCompatActivity
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         resume_btn = (Button) dialog.findViewById(R.id.resume_btn);
+        restart_btn = (Button) dialog.findViewById(R.id.restart_btn);
         quit_btn = (Button) dialog.findViewById(R.id.quit_btn);
 
         resume_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+            }
+        });
+
+        restart_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(getIntent());
             }
         });
 
@@ -76,4 +86,5 @@ public class TicTacToeActivity extends AppCompatActivity
             }
         });
     }
+
 }
