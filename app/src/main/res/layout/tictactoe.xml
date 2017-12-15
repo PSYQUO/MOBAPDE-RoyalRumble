@@ -105,7 +105,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/grid"
         android:orientation="horizontal"
-        android:layout_margin="50dp"
+        android:layout_margin="25dp"
         >
 
     </LinearLayout>

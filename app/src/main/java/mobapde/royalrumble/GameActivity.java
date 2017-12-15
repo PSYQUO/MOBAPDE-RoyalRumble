@@ -21,7 +21,7 @@ public class GameActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.checkers);
+        //setContentView(R.layout.join);
 
         PixelGridView pixelGrid = new PixelGridView(this);
         pixelGrid.setNumColumns(10);

@@ -41,7 +41,7 @@
             android:layout_weight="6">
 
         <Button
-                android:id="@+id/btn_rps"
+                android:id="@+id/btn_host"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -51,7 +51,7 @@
                 android:background="@null"/>
 
         <Button
-                android:id="@+id/btn_checkers"
+                android:id="@+id/btn_join"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -61,7 +61,7 @@
                 android:background="@null"/>
 
         <Button
-                android:id="@+id/btn_tictactoe"
+                android:id="@+id/btn_local"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

@@ -30,7 +30,7 @@ public class CheckersActivity extends AppCompatActivity {
         setContentView(R.layout.checkers);
 
         PixelGridView pixelGrid = new PixelGridView(this);
-        pixelGrid.setType("checkers");
+        pixelGrid.setType("join");
         pixelGrid.setNumColumns(8);
         pixelGrid.setNumRows(8);
 

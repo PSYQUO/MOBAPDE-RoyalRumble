@@ -20,7 +20,6 @@ public class BackgroundSoundService extends Service
     @Override
     public void onCreate()
     {
-        // TODO Auto-generated method stub
         super.onCreate();
         player = MediaPlayer.create(this, R.raw.bgmusic);
         player.setLooping(true); // Set looping
@@ -28,15 +27,8 @@ public class BackgroundSoundService extends Service
         player.start();
     }
 
-    @Override
-    public void onStart(Intent intent, int startId)
-    {
-        super.onStart(intent, startId);
-    }
-
     public void onDestroy()
     {
-        // TODO Auto-generated method stub
         super.onDestroy();
     }
 

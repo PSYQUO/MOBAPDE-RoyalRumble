@@ -27,7 +27,7 @@ public class TicTacToeActivity extends AppCompatActivity
         setContentView(R.layout.tictactoe);
 
         PixelGridView pixelGrid = new PixelGridView(this);
-        pixelGrid.setType("tictactoe");
+        pixelGrid.setType("local");
         pixelGrid.setNumColumns(3);
         pixelGrid.setNumRows(3);
 
