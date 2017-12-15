@@ -3,8 +3,8 @@ package mobapde.royalrumble;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -12,11 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import mobapde.royalrumble.game.Board;
-import mobapde.royalrumble.game.PixelGridView;
-import mobapde.royalrumble.game.Player;
 import mobapde.royalrumble.game.TTTGridView;
-import mobapde.royalrumble.game.TicTacToe;
 
 public class TicTacToeActivity extends AppCompatActivity
 {
@@ -33,12 +29,11 @@ public class TicTacToeActivity extends AppCompatActivity
         TTTGridView pixelGrid = new TTTGridView(this);
         pixelGrid.setNumColumns(3);
         pixelGrid.setNumRows(3);
-        
+
         gridView = (LinearLayout) findViewById(R.id.grid);
         gridView.addView(pixelGrid);
         pause_btn = (ImageView) findViewById(R.id.pause_btn);
         pause_btn.setClickable(true);
-
 
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
