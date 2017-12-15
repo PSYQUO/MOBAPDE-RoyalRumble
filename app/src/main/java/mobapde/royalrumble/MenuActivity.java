@@ -51,12 +51,13 @@ public class MenuActivity extends AppCompatActivity
             }
         });
 
-        quit.setOnClickListener(new View.OnClickListener() {
+        quit.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 finish();
             }
         });
-
     }
 }

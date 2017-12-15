@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity
         TextView iv = (TextView) findViewById(R.id.touch_start);
         ObjectAnimator scaleDown = ObjectAnimator.ofPropertyValuesHolder(
                 iv,
-                PropertyValuesHolder.ofFloat("scaleX", 1.2f),
-                PropertyValuesHolder.ofFloat("scaleY", 1.2f));
-        scaleDown.setDuration(310);
+                PropertyValuesHolder.ofFloat("scaleX", 1.1f),
+                PropertyValuesHolder.ofFloat("scaleY", 1.1f));
+        scaleDown.setDuration(250);
         scaleDown.setRepeatCount(ObjectAnimator.INFINITE);
         scaleDown.setRepeatMode(ObjectAnimator.REVERSE);
         scaleDown.start();
@@ -48,18 +48,6 @@ public class MainActivity extends AppCompatActivity
                 MainActivity.this.startActivity(i);
             }
         });
-
-        /**
-         * Use this for checkers
-         */
-//        LinearLayout gridView;
-//
-//        PixelGridView pixelGrid = new PixelGridView(this);
-//        pixelGrid.setType("checkers");
-//        pixelGrid.setNumColumns(8);
-//        pixelGrid.setNumRows(8);
-//        gridView = (LinearLayout) findViewById(R.id.grid);
-//        gridView.addView(pixelGrid);
     }
 
     public void onPause(){

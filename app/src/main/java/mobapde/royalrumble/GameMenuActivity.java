@@ -7,21 +7,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import mobapde.royalrumble.R;
-
 public class GameMenuActivity extends AppCompatActivity {
 
-    Button checkers, tictactoe, rps;
+    Button join, local, host;
     ImageView back_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_menu);
+        setContentView(R.layout.game_menu);
 
-        checkers = (Button) findViewById(R.id.btn_checkers);
-        tictactoe = (Button) findViewById(R.id.btn_tictactoe);
-        rps = (Button) findViewById(R.id.btn_rps);
+        join = (Button) findViewById(R.id.btn_join);
+        local = (Button) findViewById(R.id.btn_local);
+        host = (Button) findViewById(R.id.btn_host);
         back_btn = (ImageView) findViewById(R.id.back_btn_play);
         back_btn.setClickable(true);
 
@@ -32,23 +30,23 @@ public class GameMenuActivity extends AppCompatActivity {
             }
         });
 
-        rps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(GameMenuActivity.this, RPSActivity.class);
-                GameMenuActivity.this.startActivity(i);
-            }
-        });
+//        host.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(GameMenuActivity.this, RPSActivity.class);
+//                GameMenuActivity.this.startActivity(i);
+//            }
+//        });
 
-        checkers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(GameMenuActivity.this, CheckersActivity.class);
-                GameMenuActivity.this.startActivity(i);
-            }
-        });
+//        join.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(GameMenuActivity.this, CheckersActivity.class);
+//                GameMenuActivity.this.startActivity(i);
+//            }
+//        });
 
-        tictactoe.setOnClickListener(new View.OnClickListener() {
+        local.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(GameMenuActivity.this, TicTacToeActivity.class);

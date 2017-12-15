@@ -30,53 +30,45 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="79dp"
-            android:src="@drawable/royal_rumble" />
+            android:src="@drawable/tic_tac_toe_brush" />
 
     </RelativeLayout>
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="6">
-
-        <Button
-            android:id="@+id/btn_rps"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="Rock Paper Scissors"
-            android:fontFamily="serif"
-            android:textSize="20dp"
-            android:background="@null"/>
+            android:layout_weight="6">
 
         <Button
-            android:id="@+id/btn_checkers"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="checkers"
-            android:fontFamily="serif"
-            android:textSize="20dp"
-            android:background="@null"/>
+                android:id="@+id/btn_host"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Host"
+                android:fontFamily="serif"
+                android:textSize="20dp"
+                android:background="@null"/>
 
         <Button
-            android:id="@+id/btn_tictactoe"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="tic tac toe"
-            android:fontFamily="serif"
-            android:textSize="20dp"
-            android:background="@null"/>
+                android:id="@+id/btn_join"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Join"
+                android:fontFamily="serif"
+                android:textSize="20dp"
+                android:background="@null"/>
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fontFamily="serif"
-            android:textSize="20dp"
-            android:background="@null"/>
+                android:id="@+id/btn_local"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Local"
+                android:fontFamily="serif"
+                android:textSize="20dp"
+                android:background="@null"/>
 
 
     </LinearLayout>
