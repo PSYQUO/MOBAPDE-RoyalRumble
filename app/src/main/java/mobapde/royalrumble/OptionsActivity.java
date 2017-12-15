@@ -1,16 +1,30 @@
 package mobapde.royalrumble;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Environment;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.zip.Inflater;
+
+import mobapde.royalrumble.game.TicTacToe;
+import mobapde.royalrumble.service.ImageSaver;
+
+import static java.lang.System.out;
 
 public class OptionsActivity extends AppCompatActivity
 {
@@ -19,6 +33,7 @@ public class OptionsActivity extends AppCompatActivity
     Button btn_picture;
     SeekBar fx_volume, bg_volume;
     ImageView player1_pic, player2_pic;
+    View view;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +45,14 @@ public class OptionsActivity extends AppCompatActivity
         btn_picture = (Button) findViewById(R.id.btn_picture);
         fx_volume = (SeekBar) findViewById(R.id.fx_volume);
         bg_volume = (SeekBar) findViewById(R.id.bg_volume);
-        player1_pic = (ImageView) findViewById(R.id.player1_pic);
-        player2_pic = (ImageView) findViewById(R.id.player2_pic);
+
+
+
 
         btn_picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // dispatchTakePictureIntent();
+                dispatchTakePictureIntent();
             }
         });
 
@@ -50,6 +66,7 @@ public class OptionsActivity extends AppCompatActivity
         });
     }
 
+
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private void dispatchTakePictureIntent() {
@@ -59,11 +76,15 @@ public class OptionsActivity extends AppCompatActivity
         }
     }
 
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            player1_pic.setImageBitmap(imageBitmap);
+            new ImageSaver(getBaseContext()).
+                    setFileName("player_pic.png").
+                    setDirectoryName("images").
+                    save(imageBitmap);
         }
     }
 }
