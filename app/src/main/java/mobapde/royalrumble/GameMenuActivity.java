@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import mobapde.royalrumble.R;
-
 public class GameMenuActivity extends AppCompatActivity {
 
     Button checkers, tictactoe, rps;
@@ -17,7 +15,7 @@ public class GameMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_menu);
+        setContentView(R.layout.game_menu);
 
         checkers = (Button) findViewById(R.id.btn_checkers);
         tictactoe = (Button) findViewById(R.id.btn_tictactoe);
