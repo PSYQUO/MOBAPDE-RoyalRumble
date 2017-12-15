@@ -31,7 +31,6 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="79dp"
             android:src="@drawable/tic_tac_toe_brush" />
-
     </RelativeLayout>
 
     <LinearLayout
