@@ -22,7 +22,7 @@ public class TicTacToeActivity extends AppCompatActivity
 {
     LinearLayout gridView;
     ImageView pause_btn;
-    Button resume_btn, quit_btn;
+    Button resume_btn, restart_btn, quit_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -33,9 +33,6 @@ public class TicTacToeActivity extends AppCompatActivity
         TTTGridView pixelGrid = new TTTGridView(this);
         pixelGrid.setNumColumns(3);
         pixelGrid.setNumRows(3);
-
-
-
 
 
         gridView = (LinearLayout) findViewById(R.id.grid);
@@ -53,12 +50,21 @@ public class TicTacToeActivity extends AppCompatActivity
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         resume_btn = (Button) dialog.findViewById(R.id.resume_btn);
+        restart_btn = (Button) dialog.findViewById(R.id.restart_btn);
         quit_btn = (Button) dialog.findViewById(R.id.quit_btn);
 
         resume_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+            }
+        });
+
+        restart_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(getIntent());
             }
         });
 

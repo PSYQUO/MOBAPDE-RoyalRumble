@@ -135,6 +135,10 @@ public class TTTGridView extends View
                 //tictactoe.print();
                 cellChecked[x][y] = !cellChecked[x][y];
                 invalidate();
+                if(tictactoe.getWin()){
+                    Toast.makeText(getContext(), "WINNER", Toast.LENGTH_SHORT).show();
+
+                }
             }else{
                 Toast.makeText(getContext(), "Has Been Selected Already", Toast.LENGTH_SHORT).show();
             }
