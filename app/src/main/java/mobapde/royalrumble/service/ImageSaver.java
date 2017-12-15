@@ -12,9 +12,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-/**
- * Created by Ilya Gazman on 3/6/2016.
- */
 public class ImageSaver {
 
     private String directoryName = "images";
