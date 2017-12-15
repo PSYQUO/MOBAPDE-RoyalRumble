@@ -59,12 +59,11 @@
                 android:id="@+id/player1_name"
                 android:layout_marginBottom="5dp"/>
 
-            <LinearLayout
+            <ImageView
                 android:layout_width="76dp"
                 android:layout_height="72dp"
-                android:background="@drawable/customborder">
+                android:id="@+id/player1_pic"/>
 
-            </LinearLayout>
         </LinearLayout>
 
         <TextView
@@ -88,12 +87,11 @@
                 android:id="@+id/player2_name"
                 android:layout_marginBottom="5dp"/>
 
-            <LinearLayout
+            <ImageView
                 android:layout_width="76dp"
                 android:layout_height="72dp"
-                android:background="@drawable/customborder">
+                android:id="@+id/player2_pic"/>
 
-            </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>
