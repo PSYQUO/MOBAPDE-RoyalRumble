@@ -50,10 +50,20 @@ public class TicTacToeActivity extends AppCompatActivity
         pause_btn = (ImageView) findViewById(R.id.pause_btn);
         pause_btn.setClickable(true);
         player1_pic = (ImageView) findViewById(R.id.player1_pic);
+        player2_pic = (ImageView) findViewById(R.id.player2_pic);
 
         try {
             player1_pic.setImageBitmap(new ImageSaver(getBaseContext()).
                     setFileName("player_pic.png").
+                    setDirectoryName("images").
+                    load());
+        }catch (NullPointerException e){
+
+        }
+
+        try {
+            player2_pic.setImageBitmap(new ImageSaver(getBaseContext()).
+                    setFileName("player2_pic.png").
                     setDirectoryName("images").
                     load());
         }catch (NullPointerException e){

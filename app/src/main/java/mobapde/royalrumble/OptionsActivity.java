@@ -35,25 +35,38 @@ public class OptionsActivity extends AppCompatActivity
     SeekBar fx_volume, bg_volume;
     ImageView player1_pic, player2_pic;
     View view;
+    int who;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.options);
 
+        who = 0;
+
         back_btn_options = (ImageView) findViewById(R.id.back_btn_options);
         et_username = (EditText) findViewById(R.id.et_username);
+        et_username2 = (EditText) findViewById(R.id.et_username2);
         btn_picture = (Button) findViewById(R.id.btn_picture);
+        btn_picture2 = (Button) findViewById(R.id.btn_picture2);
         fx_volume = (SeekBar) findViewById(R.id.fx_volume);
         bg_volume = (SeekBar) findViewById(R.id.bg_volume);
-
-
 
 
         btn_picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dispatchTakePictureIntent();
+                who = 1;
+            }
+        });
+
+
+        btn_picture2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dispatchTakePictureIntent();
+                who = 2;
             }
         });
 
@@ -82,10 +95,17 @@ public class OptionsActivity extends AppCompatActivity
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            new ImageSaver(getBaseContext()).
-                    setFileName("player_pic.png").
-                    setDirectoryName("images").
-                    save(imageBitmap);
+
+            if (who == 1)
+                new ImageSaver(getBaseContext()).
+                        setFileName("player_pic.png").
+                        setDirectoryName("images").
+                        save(imageBitmap);
+            else if (who == 2)
+                new ImageSaver(getBaseContext()).
+                        setFileName("player2_pic.png").
+                        setDirectoryName("images").
+                        save(imageBitmap);
         }
     }
 }
