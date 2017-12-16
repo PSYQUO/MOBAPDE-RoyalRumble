@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.Scanner;
 
-import mobapde.royalrumble.game.Checkers;
+import mobapde.royalrumble.unused.Checkers;
 import mobapde.royalrumble.game.PixelGridView;
 import mobapde.royalrumble.game.Player;
 

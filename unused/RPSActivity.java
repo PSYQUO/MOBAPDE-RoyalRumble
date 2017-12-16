@@ -1,4 +1,4 @@
-package mobapde.royalrumble;
+package mobapde.royalrumble.unused;
 
 import android.app.Dialog;
 import android.graphics.Color;
@@ -12,34 +12,33 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import mobapde.royalrumble.game.Board;
-import mobapde.royalrumble.game.Piece;
+import mobapde.royalrumble.R;
 import mobapde.royalrumble.game.PixelGridView;
-import mobapde.royalrumble.game.Player;
-import static java.lang.Math.abs;
 
-public class CheckersActivity extends AppCompatActivity {
+public class RPSActivity extends AppCompatActivity {
+
     LinearLayout gridView;
-
     ImageView pause_btn;
     Button resume_btn, quit_btn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.checkers);
+        setContentView(R.layout.rps);
 
         PixelGridView pixelGrid = new PixelGridView(this);
-
-        //pixelGrid.setType("checkers");
-        pixelGrid.setNumColumns(8);
-        pixelGrid.setNumRows(8);
+        //pixelGrid.setType("rps");
+        pixelGrid.setNumColumns(2);
+        pixelGrid.setNumRows(1);
 
         gridView = (LinearLayout) findViewById(R.id.grid);
+
         gridView.addView(pixelGrid);
 
         pause_btn = (ImageView) findViewById(R.id.pause_btn);
         pause_btn.setClickable(true);
+
 
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -65,7 +64,6 @@ public class CheckersActivity extends AppCompatActivity {
                 /*Intent i = new Intent(CheckersActivity.this, GameMenuActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);*/
-                dialog.dismiss();
                 finish();
             }
         });
@@ -75,10 +73,8 @@ public class CheckersActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.show();
+
             }
         });
     }
-
-
-
 }

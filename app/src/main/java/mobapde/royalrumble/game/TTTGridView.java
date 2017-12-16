@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Picture;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -12,7 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import mobapde.royalrumble.R;
-import mobapde.royalrumble.TicTacToeActivity;
+import mobapde.royalrumble.TicTacToeLocalActivity;
 
 /**
  * Created by Jords on 11/12/2017.
@@ -24,33 +23,26 @@ public class TTTGridView extends View
     private int cellWidth, cellHeight;
     private Paint blackPaint = new Paint();
     private boolean[][] cellChecked;
-    private String type;
     private Player player;
     private int turn;
     private TicTacToe tictactoe;
 
     Drawable x, o;
 
-    public TTTGridView(Context context)
+    public TTTGridView(Context context, TicTacToe ticTacToe)
     {
-        this(context, null);
+        this(context, ticTacToe, null);
     }
 
-    public TTTGridView(Context context, AttributeSet attrs)
+    public TTTGridView(Context context, TicTacToe ticTacToe, AttributeSet attrs)
     {
         super(context, attrs);
         blackPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         x = getResources().getDrawable(R.drawable.x);
         o = getResources().getDrawable(R.drawable.o);
 
-        System.out.println("GSDFGNKSDFJkds");
-
-        Player player1 = new Player(1, "Walker");
-        Player player2 = new Player(2, "Elric");
-        tictactoe = new TicTacToe(player1, player2);
+        tictactoe = ticTacToe;
     }
-
-
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh)
@@ -81,8 +73,6 @@ public class TTTGridView extends View
         }
         int width = getWidth();
         int height = getHeight();
-
-        doType(type);
 
         for(int i = 0; i < numColumns; i++)
         {
@@ -138,14 +128,14 @@ public class TTTGridView extends View
                 invalidate();
                 if(tictactoe.getWin()){
                     Toast.makeText(getContext(), "WINNER", Toast.LENGTH_SHORT).show();
-                    TicTacToeActivity myActivity = (TicTacToeActivity) getContext();
+                    TicTacToeLocalActivity myActivity = (TicTacToeLocalActivity) getContext();
                     myActivity.finish();
 
                 }
 
                 if(tictactoe.getFull()){
                     Toast.makeText(getContext(), "FULL", Toast.LENGTH_SHORT).show();
-                    TicTacToeActivity myActivity = (TicTacToeActivity) getContext();
+                    TicTacToeLocalActivity myActivity = (TicTacToeLocalActivity) getContext();
                     myActivity.finish();
                 }
             }else{
@@ -160,11 +150,6 @@ public class TTTGridView extends View
         }
 
         return true;
-    }
-
-    public void doType(String type)
-    {
-
     }
 
     public void setNumColumns(int numColumns)

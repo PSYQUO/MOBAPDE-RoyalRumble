@@ -2,8 +2,10 @@ package mobapde.royalrumble;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -46,12 +48,13 @@ public class OptionsActivity extends AppCompatActivity
 
         back_btn_options = (ImageView) findViewById(R.id.back_btn_options);
         et_username = (EditText) findViewById(R.id.et_username);
+        et_username.setText(PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("name1", "none"));
         et_username2 = (EditText) findViewById(R.id.et_username2);
+        et_username2.setText(PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("name2", "none"));
         btn_picture = (Button) findViewById(R.id.btn_picture);
         btn_picture2 = (Button) findViewById(R.id.btn_picture2);
         fx_volume = (SeekBar) findViewById(R.id.fx_volume);
         bg_volume = (SeekBar) findViewById(R.id.bg_volume);
-
 
         btn_picture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +64,6 @@ public class OptionsActivity extends AppCompatActivity
             }
         });
 
-
         btn_picture2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,11 +72,15 @@ public class OptionsActivity extends AppCompatActivity
             }
         });
 
+
         back_btn_options.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                sp.edit().putString("name1", et_username.getText().toString()).apply();
+                sp.edit().putString("name2", et_username2.getText().toString()).apply();
                 finish();
             }
         });
