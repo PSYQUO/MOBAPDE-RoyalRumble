@@ -148,9 +148,9 @@ public class TTTGridView extends View
                     TicTacToeActivity myActivity = (TicTacToeActivity) getContext();
                     myActivity.finish();
                 }
-
             }else{
                 Toast.makeText(getContext(), "Has Been Selected Already", Toast.LENGTH_SHORT).show();
+                return true;
             }
 
             if(turn == 1)
