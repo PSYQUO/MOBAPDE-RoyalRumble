@@ -32,20 +32,27 @@ public class OptionsActivity extends AppCompatActivity
 {
     ImageView back_btn_options;
     EditText et_username;
-    Button btn_picture;
+    EditText et_username2;
+    Button btn_picture, btn_picture2;
     SeekBar fx_volume, bg_volume;
     ImageView player1_pic, player2_pic;
     View view;
+    int who;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.options);
 
+        who = 0;
+
         back_btn_options = (ImageView) findViewById(R.id.back_btn_options);
         et_username = (EditText) findViewById(R.id.et_username);
-        et_username.setText(PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("name", "none"));
+        et_username.setText(PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("name1", "none"));
+        et_username2 = (EditText) findViewById(R.id.et_username2);
+        et_username2.setText(PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("name2", "none"));
         btn_picture = (Button) findViewById(R.id.btn_picture);
+        btn_picture2 = (Button) findViewById(R.id.btn_picture2);
         fx_volume = (SeekBar) findViewById(R.id.fx_volume);
         bg_volume = (SeekBar) findViewById(R.id.bg_volume);
 
@@ -53,6 +60,15 @@ public class OptionsActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 dispatchTakePictureIntent();
+                who = 1;
+            }
+        });
+
+        btn_picture2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dispatchTakePictureIntent();
+                who = 2;
             }
         });
 
@@ -63,7 +79,8 @@ public class OptionsActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-                sp.edit().putString("name", et_username.getText().toString()).apply();
+                sp.edit().putString("name1", et_username.getText().toString()).apply();
+                sp.edit().putString("name2", et_username2.getText().toString()).apply();
                 finish();
             }
         });
@@ -84,10 +101,17 @@ public class OptionsActivity extends AppCompatActivity
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            new ImageSaver(getBaseContext()).
-                    setFileName("player_pic.png").
-                    setDirectoryName("images").
-                    save(imageBitmap);
+
+            if (who == 1)
+                new ImageSaver(getBaseContext()).
+                        setFileName("player_pic.png").
+                        setDirectoryName("images").
+                        save(imageBitmap);
+            else if (who == 2)
+                new ImageSaver(getBaseContext()).
+                        setFileName("player2_pic.png").
+                        setDirectoryName("images").
+                        save(imageBitmap);
         }
     }
 }

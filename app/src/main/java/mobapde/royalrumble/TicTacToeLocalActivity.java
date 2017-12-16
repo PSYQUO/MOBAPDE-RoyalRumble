@@ -46,14 +46,15 @@ public class TicTacToeLocalActivity extends AppCompatActivity
         setContentView(R.layout.tictactoe);
 
         player1_pic = (ImageView) findViewById(R.id.player1_pic);
+        player2_pic = (ImageView) findViewById(R.id.player2_pic);
         player1_name = (TextView) findViewById(R.id.player1_name);
         player2_name = (TextView) findViewById(R.id.player2_name);
         String name = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("name", "no name");
         player1_name.setText(name);
         player2_name.setText("Guest");
 
-        try
-        {
+
+        try {
             player1_pic.setImageBitmap(new ImageSaver(getBaseContext()).
                     setFileName("player_pic.png").
                     setDirectoryName("images").
@@ -65,6 +66,15 @@ public class TicTacToeLocalActivity extends AppCompatActivity
         }
 
         //Dialogs
+        try {
+            player2_pic.setImageBitmap(new ImageSaver(getBaseContext()).
+                    setFileName("player2_pic.png").
+                    setDirectoryName("images").
+                    load());
+        }catch (NullPointerException e){
+
+        }
+
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.pause);
