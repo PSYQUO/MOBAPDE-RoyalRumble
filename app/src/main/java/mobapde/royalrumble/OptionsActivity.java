@@ -30,7 +30,8 @@ public class OptionsActivity extends AppCompatActivity
 {
     ImageView back_btn_options;
     EditText et_username;
-    Button btn_picture;
+    EditText et_username2;
+    Button btn_picture, btn_picture2;
     SeekBar fx_volume, bg_volume;
     ImageView player1_pic, player2_pic;
     View view;
