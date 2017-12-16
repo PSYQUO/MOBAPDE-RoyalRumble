@@ -38,7 +38,6 @@ public class TicTacToeLocalActivity extends AppCompatActivity
     ImageView pause_btn, player1_pic, player2_pic;
     Button resume_btn, restart_btn, quit_btn;
     TextView player1_name, player2_name;
-    String state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

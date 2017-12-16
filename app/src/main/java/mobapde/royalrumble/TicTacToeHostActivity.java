@@ -30,6 +30,7 @@ import java.io.IOException;
 import mobapde.royalrumble.firebase.FirebaseConnection;
 import mobapde.royalrumble.game.Player;
 import mobapde.royalrumble.game.TTTGridView;
+import mobapde.royalrumble.game.TTTGridViewHost;
 import mobapde.royalrumble.game.TicTacToe;
 import mobapde.royalrumble.service.ImageSaver;
 
@@ -163,16 +164,16 @@ public class TicTacToeHostActivity extends AppCompatActivity
     {
         dr.child("tictactoe").child("info").child("state").setValue("game");
         System.out.println("_________________________________WE IN BOI_____________________________");
-//        Player p1 = new Player(1, player1_name.getText().toString());
-//        Player p2 = new Player(2, player2_name.getText().toString());
-//        TicTacToe tictactoe = new TicTacToe(p1, p2);
-//
-//        TTTGridView pixelGrid = new TTTGridView(this, tictactoe);
-//        pixelGrid.setNumColumns(3);
-//        pixelGrid.setNumRows(3);
-//
-//        gridView = (LinearLayout) findViewById(R.id.grid);
-//        gridView.addView(pixelGrid);
+        Player p1 = new Player(1, player1_name.getText().toString());
+        Player p2 = new Player(2, player2_name.getText().toString());
+        TicTacToe tictactoe = new TicTacToe(p1, p2);
+
+        TTTGridViewHost pixelGrid = new TTTGridViewHost(this, tictactoe);
+        pixelGrid.setNumColumns(3);
+        pixelGrid.setNumRows(3);
+
+        gridView = (LinearLayout) findViewById(R.id.grid);
+        gridView.addView(pixelGrid);
     }
 
     private String saveToInternalStorage(Bitmap bitmapImage)

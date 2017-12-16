@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -21,6 +22,7 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -29,6 +31,7 @@ import java.io.IOException;
 import mobapde.royalrumble.firebase.FirebaseConnection;
 import mobapde.royalrumble.game.Player;
 import mobapde.royalrumble.game.TTTGridView;
+import mobapde.royalrumble.game.TTTGridViewJoin;
 import mobapde.royalrumble.game.TicTacToe;
 import mobapde.royalrumble.service.ImageSaver;
 
@@ -52,9 +55,8 @@ public class TicTacToeJoinActivity extends AppCompatActivity
         player2_pic = (ImageView) findViewById(R.id.player2_pic);
         player1_name = (TextView) findViewById(R.id.player1_name);
         player2_name = (TextView) findViewById(R.id.player2_name);
-        yourname = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("name1", "no name");
-        player1_name.setText(yourname);
-
+        yourname = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("name2", "no name");
+        player2_name.setText(yourname);
 
         try
         {
@@ -96,48 +98,29 @@ public class TicTacToeJoinActivity extends AppCompatActivity
         pause_btn.setClickable(true);
 
         dr = FirebaseConnection.getInstance().getReference();
-        dr.child("tictactoe").child("info").addChildEventListener(new ChildEventListener()
+
+        dr.child("tictactoe").child("info").addValueEventListener(new ValueEventListener()
         {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey)
-            {
-                state = dataSnapshot.child("state").getValue(String.class);
-                if(state != null && state.equals("waiting"))
-                    readyGame();
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s)
+            public void onDataChange(DataSnapshot dataSnapshot)
             {
                 state = dataSnapshot.child("state").getValue(String.class);
                 if(state != null && state.equals("waiting"))
                     readyGame();
                 else if(state != null && state.equals("game"))
                 {
-                    player2_name.setText(dataSnapshot.child("playerhost").getValue(String.class));
+                    player1_name.setText(dataSnapshot.child("playerhost").getValue(String.class));
                     playGame();
                 }
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot)
-            {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s)
-            {
-
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError)
             {
-
+                Log.i("APP", "The read failed: " + databaseError.getCode());
             }
         });
+
 
         resume_btn.setOnClickListener(new View.OnClickListener()
         {
@@ -186,16 +169,16 @@ public class TicTacToeJoinActivity extends AppCompatActivity
 
     private void playGame()
     {
-//        Player p1 = new Player(1, player1_name.getText().toString());
-//        Player p2 = new Player(2, player2_name.getText().toString());
-//        TicTacToe tictactoe = new TicTacToe(p1, p2);
-//
-//        TTTGridView pixelGrid = new TTTGridView(this, tictactoe);
-//        pixelGrid.setNumColumns(3);
-//        pixelGrid.setNumRows(3);
-//
-//        gridView = (LinearLayout) findViewById(R.id.grid);
-//        gridView.addView(pixelGrid);
+        Player p1 = new Player(1, player1_name.getText().toString());
+        Player p2 = new Player(2, player2_name.getText().toString());
+        TicTacToe tictactoe = new TicTacToe(p1, p2);
+
+        TTTGridViewJoin pixelGrid = new TTTGridViewJoin(this, tictactoe);
+        pixelGrid.setNumColumns(3);
+        pixelGrid.setNumRows(3);
+
+        gridView = (LinearLayout) findViewById(R.id.grid);
+        gridView.addView(pixelGrid);
     }
 
     private String saveToInternalStorage(Bitmap bitmapImage)
