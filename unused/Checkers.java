@@ -1,6 +1,11 @@
-package mobapde.royalrumble.game;
+package mobapde.royalrumble.unused;
 
 import android.widget.LinearLayout;
+
+import mobapde.royalrumble.game.Board;
+import mobapde.royalrumble.game.Game;
+import mobapde.royalrumble.game.Piece;
+import mobapde.royalrumble.game.Player;
 
 import static java.lang.Math.abs;
 
@@ -8,7 +13,8 @@ import static java.lang.Math.abs;
  * Created by Jords on 11/15/2017.
  */
 
-public class Checkers extends Game{
+public class Checkers extends Game
+{
 
     private Board board;
     private final static int SIZEX = 8;

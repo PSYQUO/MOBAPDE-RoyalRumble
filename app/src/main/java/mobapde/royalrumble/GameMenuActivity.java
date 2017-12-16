@@ -49,7 +49,7 @@ public class GameMenuActivity extends AppCompatActivity {
         local.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(GameMenuActivity.this, TicTacToeActivity.class);
+                Intent i = new Intent(GameMenuActivity.this, TicTacToeLocalActivity.class);
                 GameMenuActivity.this.startActivity(i);
             }
         });

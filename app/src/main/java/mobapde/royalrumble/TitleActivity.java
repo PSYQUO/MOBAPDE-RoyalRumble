@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import mobapde.royalrumble.service.BackgroundSoundService;
 
-public class MainActivity extends AppCompatActivity
+public class TitleActivity extends AppCompatActivity
 {
     RelativeLayout screen;
     final int MAIN_TOUCH = 0;
@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(MainActivity.this, MenuActivity.class);
-                MainActivity.this.startActivity(i);
+                Intent i = new Intent(TitleActivity.this, MenuActivity.class);
+                TitleActivity.this.startActivity(i);
             }
         });
     }

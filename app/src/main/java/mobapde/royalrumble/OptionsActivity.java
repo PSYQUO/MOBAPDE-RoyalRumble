@@ -2,8 +2,10 @@ package mobapde.royalrumble;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -42,12 +44,10 @@ public class OptionsActivity extends AppCompatActivity
 
         back_btn_options = (ImageView) findViewById(R.id.back_btn_options);
         et_username = (EditText) findViewById(R.id.et_username);
+        et_username.setText(PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("name", "none"));
         btn_picture = (Button) findViewById(R.id.btn_picture);
         fx_volume = (SeekBar) findViewById(R.id.fx_volume);
         bg_volume = (SeekBar) findViewById(R.id.bg_volume);
-
-
-
 
         btn_picture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,11 +56,14 @@ public class OptionsActivity extends AppCompatActivity
             }
         });
 
+
         back_btn_options.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                sp.edit().putString("name", et_username.getText().toString()).apply();
                 finish();
             }
         });

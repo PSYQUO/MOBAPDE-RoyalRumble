@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Picture;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -12,6 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import mobapde.royalrumble.R;
+import mobapde.royalrumble.unused.Checkers;
 
 /**
  * Created by Jords on 11/12/2017.
@@ -61,6 +61,7 @@ public class PixelGridView extends View
         this.numRows = numRows;
         calculateDimensions();
     }
+
     public int getNumRows()
     {
         return numRows;
@@ -120,15 +121,19 @@ public class PixelGridView extends View
         }
     }
 
-    public void setCells(Canvas canvas, int i, int j){
+    public void setCells(Canvas canvas, int i, int j)
+    {
 
-        if (type.equalsIgnoreCase("tictactoe")) {
-            if(turn == 1 ) {
+        if(type.equalsIgnoreCase("tictactoe"))
+        {
+            if(turn == 1)
+            {
                 o.setBounds(i * cellWidth, j * cellHeight,
                         (i + 1) * cellWidth, (j + 1) * cellHeight);
                 o.draw(canvas);
             }
-            else if(turn == 2) {
+            else if(turn == 2)
+            {
                 x.setBounds(i * cellWidth, j * cellHeight,
                         (i + 1) * cellWidth, (j + 1) * cellHeight);
                 x.draw(canvas);
@@ -145,18 +150,21 @@ public class PixelGridView extends View
             player = tictactoe.getTurn(turn);
 
 
-
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        if(event.getAction() == MotionEvent.ACTION_DOWN)
+        {
             int x = (int) (event.getX() / cellWidth);
             int y = (int) (event.getY() / cellHeight);
 
-            if(!cellChecked[x][y]) {
+            if(!cellChecked[x][y])
+            {
                 Toast.makeText(getContext(), Integer.toString(turn), Toast.LENGTH_SHORT).show();
                 if(type.equalsIgnoreCase("tictactoe"))
                     //tictactoe.setPiece(player, x,y);
-                cellChecked[x][y] = !cellChecked[x][y];
+                    cellChecked[x][y] = !cellChecked[x][y];
                 invalidate();
-            }else{
+            }
+            else
+            {
                 Toast.makeText(getContext(), "Has Been Selected Already", Toast.LENGTH_SHORT).show();
             }
 
@@ -169,7 +177,8 @@ public class PixelGridView extends View
         return true;
     }
 
-    public void setTicTacToe(TicTacToe tictactoe) {
+    public void setTicTacToe(TicTacToe tictactoe)
+    {
         type = "tictactoe";
         this.tictactoe = tictactoe;
     }
@@ -185,7 +194,7 @@ public class PixelGridView extends View
                         cellChecked[y][x] = !cellChecked[y][x];
                 }
             }
-       // Toast.makeText(getContext(), "Checkers", Toast.LENGTH_SHORT).show();
+        // Toast.makeText(getContext(), "Checkers", Toast.LENGTH_SHORT).show();
 
     }
 }
