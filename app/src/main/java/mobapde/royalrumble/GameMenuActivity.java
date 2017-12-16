@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import mobapde.royalrumble.game.TicTacToe;
+
 public class GameMenuActivity extends AppCompatActivity {
 
     Button join, local, host;
@@ -30,21 +32,21 @@ public class GameMenuActivity extends AppCompatActivity {
             }
         });
 
-//        host.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(GameMenuActivity.this, RPSActivity.class);
-//                GameMenuActivity.this.startActivity(i);
-//            }
-//        });
+        host.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(GameMenuActivity.this, TicTacToeHostActivity.class);
+                GameMenuActivity.this.startActivity(i);
+            }
+        });
 
-//        join.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(GameMenuActivity.this, CheckersActivity.class);
-//                GameMenuActivity.this.startActivity(i);
-//            }
-//        });
+        join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(GameMenuActivity.this, TicTacToeJoinActivity.class);
+                GameMenuActivity.this.startActivity(i);
+            }
+        });
 
         local.setOnClickListener(new View.OnClickListener() {
             @Override

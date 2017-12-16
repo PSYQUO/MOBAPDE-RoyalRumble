@@ -38,6 +38,7 @@ public class TicTacToeLocalActivity extends AppCompatActivity
     ImageView pause_btn, player1_pic, player2_pic;
     Button resume_btn, restart_btn, quit_btn;
     TextView player1_name, player2_name;
+    String state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,12 +50,13 @@ public class TicTacToeLocalActivity extends AppCompatActivity
         player2_pic = (ImageView) findViewById(R.id.player2_pic);
         player1_name = (TextView) findViewById(R.id.player1_name);
         player2_name = (TextView) findViewById(R.id.player2_name);
-        String name = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("name", "no name");
-        player1_name.setText(name);
-        player2_name.setText("Guest");
+        String name1 = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("name1", "no name");
+        player1_name.setText(name1);
+        String name2 = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("name2", "no name");
+        player2_name.setText(name2);
 
-
-        try {
+        try
+        {
             player1_pic.setImageBitmap(new ImageSaver(getBaseContext()).
                     setFileName("player_pic.png").
                     setDirectoryName("images").
@@ -65,14 +67,16 @@ public class TicTacToeLocalActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-        //Dialogs
-        try {
+        try
+        {
             player2_pic.setImageBitmap(new ImageSaver(getBaseContext()).
                     setFileName("player2_pic.png").
                     setDirectoryName("images").
                     load());
-        }catch (NullPointerException e){
-
+        }
+        catch(NullPointerException e)
+        {
+            e.printStackTrace();
         }
 
         final Dialog dialog = new Dialog(this);

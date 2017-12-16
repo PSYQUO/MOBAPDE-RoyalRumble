@@ -9,7 +9,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -18,10 +17,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -33,7 +32,7 @@ import mobapde.royalrumble.game.TTTGridView;
 import mobapde.royalrumble.game.TicTacToe;
 import mobapde.royalrumble.service.ImageSaver;
 
-public class TicTacToeHostActivity extends AppCompatActivity
+public class TicTacToeJoinActivity extends AppCompatActivity
 {
     LinearLayout gridView;
     ImageView pause_btn, player1_pic, player2_pic;
@@ -42,6 +41,7 @@ public class TicTacToeHostActivity extends AppCompatActivity
     DatabaseReference dr;
     String state;
     String yourname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -67,7 +67,7 @@ public class TicTacToeHostActivity extends AppCompatActivity
         {
             e.printStackTrace();
         }
-        
+
         try
         {
             player2_pic.setImageBitmap(new ImageSaver(getBaseContext()).
@@ -96,27 +96,46 @@ public class TicTacToeHostActivity extends AppCompatActivity
         pause_btn.setClickable(true);
 
         dr = FirebaseConnection.getInstance().getReference();
-        dr.child("tictactoe").child("info").child("state").setValue("waiting");
-        dr.child("tictactoe").child("info").child("playerhost").setValue(yourname);
-
-        dr.child("tictactoe").child("info").addValueEventListener(new ValueEventListener()
+        dr.child("tictactoe").child("info").addChildEventListener(new ChildEventListener()
         {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
+            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey)
             {
                 state = dataSnapshot.child("state").getValue(String.class);
+                if(state != null && state.equals("waiting"))
+                    readyGame();
+            }
 
-                if(state != null && state.equals("ready"))
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s)
+            {
+                state = dataSnapshot.child("state").getValue(String.class);
+                if(state != null && state.equals("waiting"))
+                    readyGame();
+                else if(state != null && state.equals("game"))
                 {
-                    player2_name.setText(dataSnapshot.child("playerjoined").getValue(String.class));
+                    player2_name.setText(dataSnapshot.child("playerhost").getValue(String.class));
                     playGame();
                 }
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot)
+            {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s)
+            {
+
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError)
             {
-                Log.i("APP", "The read failed: " + databaseError.getCode());
+
             }
         });
 
@@ -159,10 +178,14 @@ public class TicTacToeHostActivity extends AppCompatActivity
         });
     }
 
+    private void readyGame()
+    {
+        dr.child("tictactoe").child("info").child("playerjoin").setValue(yourname);
+        dr.child("tictactoe").child("info").child("state").setValue("ready");
+    }
+
     private void playGame()
     {
-        dr.child("tictactoe").child("info").child("state").setValue("game");
-        System.out.println("_________________________________WE IN BOI_____________________________");
 //        Player p1 = new Player(1, player1_name.getText().toString());
 //        Player p2 = new Player(2, player2_name.getText().toString());
 //        TicTacToe tictactoe = new TicTacToe(p1, p2);
